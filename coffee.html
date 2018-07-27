@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hackbright Coffee Shop</title>
+
+    <!-- Bootstrap links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <!-- Google fonts link -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway" >
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="static/coffee.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="starter-template">
+        <h1>Coffee Shop</h1>
+        <br>
+
+        <img id="coffee-image" src="LOLWUT" alt="make this image work with js" height="300" width="200">
+
+        <h3 id="message">Click The Image To Order Coffee</h3>
+
+        <table class="table">
+            <tr>
+                <td class="col-md-2">
+                    <button class="btn btn-default" id="espresso">Espresso</button>
+                </td>
+                <td class="col-md-2">
+                    <button class="btn btn-default" id="latte">Latte</button>
+                </td>
+                <td class="col-md-2">
+                    <button class="btn btn-default" id="hot-chocolate">Hot Chocolate</button>
+                </td>
+            </tr>
+            <tr>
+                <td>$3.25</td>
+                <td>$4.15</td>
+                <td>$2.50</td>
+            </tr>
+        </table>
+
+        <h4>Total: <span id="revenue"><!-- Revenue Message will show up here --></span></h4>
+    </div>
+</div>
+
+<script>
+
+    // Set these variables to their DOM elements
+
+    // creating a variable coffeeImage, which is found using the query selector
+    // let coffeeImage = document.querySelector('#coffee-image');
+    // setting the coffee-image to the related static file
+    // coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+
+    // Callback function
+
+ //    // function changeToMachine
+ //    // Happens after event listener is added and changeToMachine is called
+ //    function changeToMachine() {
+ //    		coffeeImage.setAttribute('src', 'static/coffee_machine.jpg');
+ //    		pourCoffee();
+ //    }
+
+
+ //    // Happens after 1500 milliseconds of being on machine image
+	// function pourCoffee() {
+ //    	setTimeout(changeToMug,1500);
+ //    }
+
+
+ //    // Happens after 1500 ms on machine image
+ //    // After 2500 ms, will switch to beans
+ //    function changeToMug() {
+ //    		coffeeImage.setAttribute('src','static/coffee_mug.jpg');
+ //    		setTimeout(changeToBeans, 2500);
+ //    }
+
+
+ //    // Happens after 2500 ms on mug image, switches image to beans
+ //    function changeToBeans() {
+ //    		coffeeImage.setAttribute('src','static/coffee_beans.jpg');
+ //    }
+
+
+ //    // Changes image to coffee_mug.jpg on click
+ //    changeToBeans();
+ //    coffeeImage.addEventListener('click', changeToMachine);
+
+
+ //    // setting the coffee-image to the related static file
+ //    // coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+
+ /////////////////////////////////// BELOW WITH JQUERY, ABOVE WITH JS
+
+
+     // Callback function
+
+    // function changeToMachine
+    // Happens after event listener is added and changeToMachine is called
+    function changeToMachine() {
+		$('#coffee-image').attr('src', 'static/coffee_machine.jpg');
+		pourCoffee();
+    }
+
+
+    // Happens after 1500 milliseconds of being on machine image
+	function pourCoffee() {
+    	setTimeout(changeToMug,1500);
+    }
+
+
+    // Happens after 1500 ms on machine image
+    // After 2500 ms, will switch to beans
+    function changeToMug() {
+    	// Alternative way to reference coffee-image
+		let img = $('#coffee-image');
+		// debugger;
+		img.attr('src','static/coffee_mug.jpg');
+		setTimeout(changeToBeans, 2500);
+    }
+
+
+    // Happens after 2500 ms on mug image, switches image to beans
+    function changeToBeans() {
+    	$('#coffee-image').attr('src','static/coffee_beans.jpg');
+    }
+
+
+    // Changes image to coffee_mug.jpg on click
+    changeToBeans();
+    $('#coffee-image').on('click', changeToMachine);
+
+    let revenueMessage;
+
+
+    // use this JavaScript object in further study step
+
+    const prices = {
+        "brew": 2.05,
+        "espresso": 3.25,
+        "latte": 4.15,
+        "hot chocolate": 2.50
+    };
+
+
+</script>
+
+</body>
+</html>
